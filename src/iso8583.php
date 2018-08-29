@@ -31,7 +31,7 @@ function iso2str($arr){
   if(max(array_keys($arr))>64) $str.=crtbit($arr,2);
   for($i=2;$i<=128;$i++){
     if(isset($arr[$i]))
-      if(substr($spec[$i],0,1)!='v') $str.=str_pad($arr[$i],$spec[$i],' ');
+      if(substr($spec[$i],0,1)!='v') $str.=str_pad($arr[$i],$spec[$i],is_number($arr[$i])?0:' ');
       else $str.= str_pad(strlen($arr[$i]),substr($spec[$i],1),0,STR_PAD_LEFT).$arr[$i];
   }
   return $str;
